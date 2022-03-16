@@ -1,0 +1,11 @@
+ARG IMAGE_NAME
+FROM ${IMAGE_NAME}
+
+# Fix permissions
+RUN fix-permissions "${CONDA_DIR}" && \
+    fix-permissions "/home/${NB_USER}"
+
+# Switch back to jovyan to avoid accidental container runs as root
+USER ${NB_UID}
+
+WORKDIR "${HOME}"

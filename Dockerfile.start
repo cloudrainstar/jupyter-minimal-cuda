@@ -1,0 +1,6 @@
+ARG MINIMAL_TAG
+FROM jupyter/minimal-notebook:${MINIMAL_TAG}
+
+# Change user to root so we can work install cuda
+USER root
+
